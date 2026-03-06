@@ -1,0 +1,90 @@
+
+// Para criar uma migrate nova > npx prisma migrate dev
+// Depois, rode o seguinte comando para refrescar >> npx prisma generate
+
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  STAFF
+  ADMIN
+}
+
+model User {
+  id String @id @default(uuid())
+  name String
+  email String
+  password String
+  role Role @default(STAFF)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Category {
+  id String @id @default(uuid())
+  name String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  products Product[] //podem ter vários produtos atrelados a uma categoria
+
+  @@map("categories")
+}
+
+model Product {
+  id String @id @default(uuid())
+  name String
+  price Int 
+  description String
+  banner String
+  disabled Boolean @default(false)
+
+  items Item[] //um produto pode estar atrelado a um item
+
+  category_id String //um produto vai estar atrelado a uma categoria
+  category Category @relation (fields:[category_id], references:[id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map ("product")
+}
+
+model Order {
+  id String @id @default(uuid())
+  table Int
+  status Boolean @default(false) // false = pendente, true = pronto
+  draft Boolean @default(true) //false = rascunho, true = enviado para a cozinha
+  name String?
+
+  items Item[] //um pedido pode ter vários itens atrelados a ele
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("orders")
+}
+
+model Item {
+  id String @id @default(uuid())
+  amount Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  order_id String //um item deve estar atrelado a um pedido
+  order Order @relation(fields:[order_id], references:[id], onDelete: Cascade)
+
+  product_id String //um item deve estar atrelado a um produto
+  product Product @relation(fields:[product_id], references:[id], onDelete: Cascade)
+
+  @@map("items")
+}
