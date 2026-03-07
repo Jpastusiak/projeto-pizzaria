@@ -23,7 +23,7 @@ Sistema backend de gerenciamento de pizzaria desenvolvido em Node.js com TypeScr
 
 ## 🏗️ Arquitetura
 
-O projeto segue o padrão **MVC + Service Layer**, com a seguinte estrutura:
+O projeto segue o padrão **Camadas + Service Layer**, com a seguinte estrutura:
 
 ```
 Requisição HTTP → Rotas → Middlewares → Controller → Service → Banco de Dados → Service → Controller → Resposta HTTP
