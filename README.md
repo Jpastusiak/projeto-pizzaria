@@ -53,13 +53,13 @@ Requisição HTTP → Rotas → Middlewares → Controller → Service → Banco
 | Tecnologia         | Versão  | Finalidade                                   |
 | ------------------ | ------- | -------------------------------------------- |
 | **express**        | ^5.1.0  | Framework web para criação de APIs REST      |
-| **@prisma/client** | ^6.19.0 | ORM para comunicação com banco de dados      |
+| **@prisma/client** | ^7.4.1 | ORM para comunicação com banco de dados      |
 | **typescript**     | ^5.9.3  | Superset JavaScript com tipagem estática     |
-| **zod**            | ^4.1.12 | Biblioteca de validação de schemas e tipagem |
+| **zod**            | ^4.3.6 | Biblioteca de validação de schemas e tipagem |
 | **bcryptjs**       | ^3.0.3  | Criptografia de senhas                       |
-| **jsonwebtoken**   | ^9.0.2  | Geração e validação de tokens JWT            |
-| **cors**           | ^2.8.5  | Middleware para habilitar CORS               |
-| **dotenv**         | ^17.2.3 | Carregamento de variáveis de ambiente        |
+| **jsonwebtoken**   | ^9.0.3  | Geração e validação de tokens JWT            |
+| **cors**           | ^2.8.6  | Middleware para habilitar CORS               |
+| **dotenv**         | ^17.3.1 | Carregamento de variáveis de ambiente        |
 | **tsx**            | ^4.20.6 | Executor TypeScript para desenvolvimento     |
 
 ### Dependências de Desenvolvimento
@@ -69,8 +69,8 @@ Requisição HTTP → Rotas → Middlewares → Controller → Service → Banco
 | **@types/express**      | ^5.0.5   | Tipos TypeScript para Express |
 | **@types/cors**         | ^2.8.19  | Tipos TypeScript para CORS    |
 | **@types/jsonwebtoken** | ^9.0.10  | Tipos TypeScript para JWT     |
-| **@types/node**         | ^24.10.0 | Tipos TypeScript para Node.js |
-| **prisma**              | ^6.19.0  | CLI do Prisma ORM             |
+| **@types/node**         | ^24.10.13 | Tipos TypeScript para Node.js |
+| **prisma**              | ^7.4.1  | CLI do Prisma ORM             |
 
 ### Banco de Dados
 
