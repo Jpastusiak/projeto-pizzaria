@@ -1,0 +1,17 @@
+import { z } from 'zod';
+
+export const createProductSchema = z.object({
+    body: z.object({
+        name: z
+            .string()
+            .min(1, { message:"O nome do produto é obrigatório" }),
+        price: z
+            .string()
+            .min(1, { message:"O valor do produto é obrigatório" }),
+        category_id: z
+            .string()
+            .min(1, { message:"A categoria é obrigatória" }),
+        description: z
+            .string({ message:"A descrição do produto é obrigatória" })
+    })
+});
